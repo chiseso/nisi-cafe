@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="日常に小さな休息を。Cafe Lueurの公式ホームページです。">
+  <title>Cafe Lueur | 日常に、小さな休息を。</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family:
+        "Hiragino Kaku Gothic ProN",
+        "Yu Gothic",
+        sans-serif;
+      color: #3e342d;
+      background: #f8f4ee;
+      line-height: 1.8;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* ====================
+       Header
+    ==================== */
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+      background: rgba(248, 244, 238, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(80, 60, 45, 0.08);
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      height: 72px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-family: Georgia, serif;
+      font-size: 24px;
+      font-weight: bold;
+      letter-spacing: 0.08em;
+      color: #604838;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+      font-size: 14px;
+      letter-spacing: 0.08em;
+    }
+
+    nav a {
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #a46f4d;
+    }
+
+    /* ====================
+       Hero
+    ==================== */
+
+    .hero {
+      min-height: 100vh;
+      padding: 140px 24px 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+
+      background:
+        radial-gradient(circle at 20% 30%, #ead9c8 0 8%, transparent 25%),
+        radial-gradient(circle at 80% 70%, #dfc8b4 0 7%, transparent 24%),
+        #f8f4ee;
+    }
+
+    .hero-content {
+      max-width: 760px;
+    }
+
+    .hero-label {
+      display: inline-block;
+      margin-bottom: 24px;
+      color: #a46f4d;
+      font-size: 13px;
+      letter-spacing: 0.3em;
+    }
+
+    .hero h1 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(48px, 9vw, 92px);
+      font-weight: normal;
+      line-height: 1.1;
+      letter-spacing: 0.04em;
+      color: #4d392d;
+    }
+
+    .hero h1 span {
+      display: block;
+      font-family: "Yu Gothic", sans-serif;
+      font-size: clamp(20px, 3vw, 30px);
+      margin-top: 20px;
+      letter-spacing: 0.18em;
+    }
+
+    .hero p {
+      margin: 32px auto 40px;
+      max-width: 520px;
+      color: #74665d;
+      font-size: 15px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 32px;
+      border: 1px solid #80604d;
+      color: #604838;
+      font-size: 14px;
+      letter-spacing: 0.12em;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #604838;
+      color: #fff;
+    }
+
+    /* ====================
+       Common
+    ==================== */
+
+    section {
+      padding: 110px 24px;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      margin-bottom: 60px;
+      text-align: center;
+    }
+
+    .section-title .en {
+      display: block;
+      margin-bottom: 8px;
+      font-family: Georgia, serif;
+      color: #a46f4d;
+      font-size: 15px;
+      letter-spacing: 0.2em;
+    }
+
+    .section-title h2 {
+      font-size: 30px;
+      font-weight: normal;
+      letter-spacing: 0.12em;
+    }
+
+    /* ====================
+       About
+    ==================== */
+
+    .about {
+      background: #eee4d8;
+    }
+
+    .about-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .about-decoration {
+      min-height: 360px;
+      border: 1px solid #cbb6a3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .about-decoration::before {
+      content: "CAFE";
+      font-family: Georgia, serif;
+      font-size: 72px;
+      color: rgba(96, 72, 56, 0.08);
+      letter-spacing: 0.12em;
+    }
+
+    .about-text h3 {
+      margin-bottom: 24px;
+      font-size: 25px;
+      font-weight: normal;
+      line-height: 1.6;
+    }
+
+    .about-text p {
+      margin-bottom: 18px;
+      color: #6e6259;
+      font-size: 14px;
+    }
+
+    /* ====================
+       Menu
+    ==================== */
+
+    .menu {
+      background: #f8f4ee;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .menu-card {
+      padding: 35px 28px;
+      background: #fffdf9;
+      border: 1px solid #e5dace;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .menu-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(80, 60, 45, 0.08);
+    }
+
+    .menu-icon {
+      font-size: 36px;
+      margin-bottom: 18px;
+    }
+
+    .menu-card h3 {
+      margin-bottom: 8px;
+      font-family: Georgia, serif;
+      font-size: 21px;
+      font-weight: normal;
+    }
+
+    .menu-card .jp {
+      margin-bottom: 18px;
+      color: #8d796a;
+      font-size: 13px;
+    }
+
+    .menu-card p {
+      color: #746960;
+      font-size: 13px;
+    }
+
+    .price {
+      display: block;
+      margin-top: 18px;
+      color: #604838;
+      font-family: Georgia, serif;
+      font-size: 17px;
+    }
+
+    /* ====================
+       News
+    ==================== */
+
+    .news {
+      background: #eee4d8;
+    }
+
+    .news-list {
+      max-width: 750px;
+      margin: 0 auto;
+    }
+
+    .news-item {
+      display: flex;
+      gap: 30px;
+      padding: 20px 0;
+      border-bottom: 1px solid #d4c2b2;
+      font-size: 14px;
+    }
+
+    .news-date {
+      color: #a46f4d;
+      white-space: nowrap;
+    }
+
+    /* ====================
+       Access
+    ==================== */
+
+    .access {
+      background: #f8f4ee;
+    }
+
+    .access-box {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 40px;
+      background: #fffdf9;
+      border: 1px solid #e5dace;
+    }
+
+    .access-row {
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      padding: 16px 0;
+      border-bottom: 1px solid #eee5dc;
+      font-size: 14px;
+    }
+
+    .access-row:last-child {
+      border-bottom: none;
+    }
+
+    .access-label {
+      color: #a46f4d;
+    }
+
+    /* ====================
+       Contact
+    ==================== */
+
+    .contact {
+      background: #604838;
+      color: #fff;
+      text-align: center;
+    }
+
+    .contact .section-title .en {
+      color: #d9bda6;
+    }
+
+    .contact .section-title h2 {
+      color: #fff;
+    }
+
+    .contact p {
+      margin-bottom: 30px;
+      color: #e8ddd5;
+      font-size: 14px;
+    }
+
+    .contact .btn {
+      border-color: #d9bda6;
+      color: #fff;
+    }
+
+    .contact .btn:hover {
+      background: #fff;
+      color: #604838;
+    }
+
+    /* ====================
+       Footer
+    ==================== */
+
+    footer {
+      padding: 25px;
+      background: #4d392d;
+      color: #cdbdb1;
+      text-align: center;
+      font-family: Georgia, serif;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+    }
+
+    /* ====================
+       Responsive
+    ==================== */
+
+    @media (max-width: 768px) {
+      .header-inner {
+        height: 62px;
+      }
+
+      .logo {
+        font-size: 20px;
+      }
+
+      nav ul {
+        gap: 14px;
+        font-size: 11px;
+      }
+
+      .hero {
+        min-height: 90vh;
+        padding-top: 110px;
+      }
+
+      section {
+        padding: 80px 20px;
+      }
+
+      .about-inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .about-decoration {
+        min-height: 220px;
+      }
+
+      .about-decoration::before {
+        font-size: 50px;
+      }
+
+      .menu-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .news-item {
+        display: block;
+      }
+
+      .news-date {
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      .access-box {
+        padding: 25px 20px;
+      }
+
+      .access-row {
+        grid-template-columns: 90px 1fr;
+        font-size: 13px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="header-inner">
+      <a href="#" class="logo">Cafe Lueur</a>
+
+      <nav>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#news">News</a></li>
+          <li><a href="#access">Access</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+
+  <main>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-content">
+        <span class="hero-label">A LITTLE BREAK IN YOUR DAY</span>
+
+        <h1>
+          Cafe Lueur
+          <span>日常に、小さな休息を。</span>
+        </h1>
+
+        <p>
+          丁寧に淹れたコーヒーと、季節のお菓子。<br>
+          ゆっくり流れる時間を、あなたの日常に。
+        </p>
+
+        <a href="#menu" class="btn">MENUを見る</a>
+      </div>
+    </section>
+
+
+    <!-- About -->
+    <section class="about" id="about">
+      <div class="container">
+
+        <div class="section-title">
+          <span class="en">ABOUT US</span>
+          <h2>私たちについて</h2>
+        </div>
+
+        <div class="about-inner">
+
+          <div class="about-decoration"></div>
+
+          <div class="about-text">
+            <h3>
+              忙しい毎日に、<br>
+              ほんの少しの余白を。
+            </h3>
+
+            <p>
+              Cafe Lueurは、街の小さな路地にある
+              落ち着いたカフェです。
+            </p>
+
+            <p>
+              一杯ずつ丁寧に淹れるコーヒーと、
+              素材の味を大切にした手作りスイーツ。
+              本を読んだり、友人と話したり、
+              何もしない時間を過ごしたり。
+            </p>
+
+            <p>
+              それぞれの心地よい時間を
+              見つけてもらえる場所を目指しています。
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Menu -->
+    <section class="menu" id="menu">
+      <div class="container">
+
+        <div class="section-title">
+          <span class="en">OUR MENU</span>
+          <h2>おすすめメニュー</h2>
+        </div>
+
+        <div class="menu-grid">
+
+          <article class="menu-card">
+            <div class="menu-icon">☕</div>
+            <h3>House Coffee</h3>
+            <div class="jp">ハウスコーヒー</div>
+            <p>
+              香り豊かな豆を丁寧に
+              ハンドドリップで。
+            </p>
+            <span class="price">¥550</span>
+          </article>
+
+          <article class="menu-card">
+            <div class="menu-icon">🍰</div>
+            <h3>Seasonal Cake</h3>
+            <div class="jp">季節のケーキ</div>
+            <p>
+              季節の素材を使った
+              日替わりの手作りケーキ。
+            </p>
+            <span class="price">¥650</span>
+          </article>
+
+          <article class="menu-card">
+            <div class="menu-icon">🥪</div>
+            <h3>Lunch Plate</h3>
+            <div class="jp">ランチプレート</div>
+            <p>
+              新鮮な野菜とパンを使った
+              彩り豊かなランチ。
+            </p>
+            <span class="price">¥1,200</span>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- News -->
+    <section class="news" id="news">
+      <div class="container">
+
+        <div class="section-title">
+          <span class="en">NEWS</span>
+          <h2>お知らせ</h2>
+        </div>
+
+        <div class="news-list">
+
+          <div class="news-item">
+            <span class="news-date">2026.09.01</span>
+            <span>秋限定のモンブランが登場しました。</span>
+          </div>
+
+          <div class="news-item">
+            <span class="news-date">2026.08.20</span>
+            <span>ホームページをリニューアルしました。</span>
+          </div>
+
+          <div class="news-item">
+            <span class="news-date">2026.08.01</span>
+            <span>8月の営業スケジュールを更新しました。</span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Access -->
+    <section class="access" id="access">
+      <div class="container">
+
+        <div class="section-title">
+          <span class="en">ACCESS</span>
+          <h2>店舗情報</h2>
+        </div>
+
+        <div class="access-box">
+
+          <div class="access-row">
+            <span class="access-label">店名</span>
+            <span>Cafe Lueur</span>
+          </div>
+
+          <div class="access-row">
+            <span class="access-label">住所</span>
+            <span>大阪府大阪市○○区○○ 1-2-3</span>
+          </div>
+
+          <div class="access-row">
+            <span class="access-label">営業時間</span>
+            <span>10:00 - 19:00</span>
+          </div>
+
+          <div class="access-row">
+            <span class="access-label">定休日</span>
+            <span>毎週火曜日</span>
+          </div>
+
+          <div class="access-row">
+            <span class="access-label">アクセス</span>
+            <span>○○駅から徒歩5分</span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Contact -->
+    <section class="contact">
+      <div class="container">
+
+        <div class="section-title">
+          <span class="en">CONTACT</span>
+          <h2>お問い合わせ</h2>
+        </div>
+
+        <p>
+          ご予約やお問い合わせはこちらから。
+        </p>
+
+        <a href="mailto:hello@example.com" class="btn">
+          CONTACT
+        </a>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <footer>
+    © 2026 Cafe Lueur
+  </footer>
+
+</body>
+</html>
